@@ -1,5 +1,5 @@
 module NumbersAsWords
   def as_words
-    "one"
+    self == 1 ? "one" : "two"
   end
 end
