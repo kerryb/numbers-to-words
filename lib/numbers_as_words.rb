@@ -1,5 +1,7 @@
 module NumbersAsWords
+  WORDS = %w{zero one two three four five six seven eight nine}
+
   def as_words
-    self == 1 ? "one" : "two"
+    WORDS[self]
   end
 end
