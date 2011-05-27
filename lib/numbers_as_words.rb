@@ -1,4 +1,4 @@
-class Integer
+module NumbersAsWords
   def as_words
     "one"
   end
