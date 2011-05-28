@@ -43,4 +43,14 @@ describe "Numbers as words" do
       end
     end
   end
+
+  context "three digit numbers" do
+    {100 => "one hundred", 123 => "one hundred and twenty-three", 369 => "three hundred and sixty-nine",
+      420 => "four hundred and twenty", 901 => "nine hundred and one"}.each do |number, word|
+
+      it "converts #{number} to '#{word}'" do
+        number.as_words.should == word
+      end
+    end
+  end
 end

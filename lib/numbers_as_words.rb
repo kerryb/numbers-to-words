@@ -8,8 +8,12 @@ module NumbersAsWords
       UNITS[self]
     when *((20..90).step 10)
       TENS[self/10]
-    else
+    when 20..99
       "#{TENS[self/10]}-#{UNITS[self % 10]}"
+    when *((100..900).step 100)
+      "#{UNITS[self/100]} hundred"
+    else
+      "#{UNITS[self/100]} hundred and #{(self % 100).as_words}"
     end
   end
 end
