@@ -34,4 +34,13 @@ describe "Numbers as words" do
       end
     end
   end
+
+  context "two digit numbers" do
+    {21 => "twenty-one", 42 => "forty-two", 69 => "sixty-nine"}.each do |number, word|
+
+      it "converts #{number} to '#{word}'" do
+        number.as_words.should == word
+      end
+    end
+  end
 end

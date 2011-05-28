@@ -6,8 +6,10 @@ module NumbersAsWords
     case self
     when 0..19
       UNITS[self]
-    else
+    when *((20..90).step 10)
       TENS[self/10]
+    else
+      "#{TENS[self/10]}-#{UNITS[self % 10]}"
     end
   end
 end
