@@ -24,4 +24,14 @@ describe "Numbers as words" do
       end
     end
   end
+
+  context "multiples of ten" do
+    {20 => "twenty", 30 => "thirty", 40 => "forty", 50 => "fifty", 60 => "sixty",
+      70 => "seventy", 80 => "eighty", 90 => "ninety"}.each do |number, word|
+
+      it "converts #{number} to '#{word}'" do
+        number.as_words.should == word
+      end
+    end
+  end
 end
