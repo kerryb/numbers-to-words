@@ -71,4 +71,15 @@ describe "Numbers as words" do
       end
     end
   end
+
+  context "1,000 - 999,999" do
+    {1_234 => "one thousand two hundred and thirty-four", 12_400 => "twelve thousand four hundred",
+      99_099 => "ninety-nine thousand and ninety-nine",
+      456_001 => "four hundred and fifty-six thousand and one"}.each do |number, word|
+
+      it "converts #{number} to '#{word}'" do
+        number.as_words.should == word
+      end
+    end
+  end
 end
