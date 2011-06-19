@@ -6,7 +6,7 @@ Integer.send :include, NumbersAsWords
 
 describe "Numbers as words" do
   context "Unsupported values" do
-    [-1, 0, 1_000_000].each do |number|
+    [-1, 0, 1_000_000_000].each do |number|
       it "performs a simple to_s on #{number}" do
         number.as_words.should == number.to_s
       end
@@ -73,9 +73,18 @@ describe "Numbers as words" do
   end
 
   context "1,000 - 999,999" do
-    {1_234 => "one thousand two hundred and thirty-four", 12_400 => "twelve thousand four hundred",
-      99_099 => "ninety-nine thousand and ninety-nine",
-      456_001 => "four hundred and fifty-six thousand and one"}.each do |number, word|
+    {1_234 => "one thousand, two hundred and thirty-four", 12_400 => "twelve thousand, four hundred",
+      99_099 => "ninety-nine thousand and ninety-nine", 456_001 => "four hundred and fifty-six thousand and one",
+      999_999 => "nine hundred and ninety-nine thousand, nine hundred and ninety-nine"}.each do |number, word|
+
+      it "converts #{number} to '#{word}'" do
+        number.as_words.should == word
+      end
+    end
+  end
+
+  context "1,000,000 - 999,999,999" do
+    {1_234_567 => "one million, two hundred and thirty-four thousand five hundred and sixty-seven"}.each do |number, word|
 
       it "converts #{number} to '#{word}'" do
         number.as_words.should == word
