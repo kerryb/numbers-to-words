@@ -1,3 +1,6 @@
+$:.unshift "lib"
+require "converts_number_to_words"
+
 Given /^the number (.*)$/ do |number|
   @number = number
 end
