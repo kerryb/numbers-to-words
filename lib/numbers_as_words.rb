@@ -18,8 +18,7 @@ module NumbersAsWords
     when 1000..999_999
       ["#{(self/1000).as_words} thousand", (self % 1000).as_words_or_nil].compact.join thousands_joiner(self % 1000)
     when 1000_000..999_999_999
-      [["#{(self/1000_000).as_words} million", "#{((self % 1000_000)/1000).as_words} thousand"].join(", "),
-        (self % 1000).as_words_or_nil].compact.join thousands_joiner(self % 1000_000)
+      ["#{(self/1000_000).as_words} million", "#{((self % 1000_000)).as_words_or_nil}"].compact.join(", ")
     end
   end
 
