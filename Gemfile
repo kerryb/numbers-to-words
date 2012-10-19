@@ -1,5 +1,4 @@
 source "http://rubygems.org"
 
-gem "autotest"
-gem "autotest-growl"
+gem "cucumber"
 gem "rspec"
