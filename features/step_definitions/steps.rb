@@ -1,8 +1,12 @@
 $:.unshift "lib"
 require "converts_number_to_words"
 
+Transform /^(-?\d+)$/ do |number|
+  number.to_i
+end
+
 Given /^the number (.*)$/ do |number|
-  @number = number.to_i
+  @number = number
 end
 
 When "I convert it to words" do
