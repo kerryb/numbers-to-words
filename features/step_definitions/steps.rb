@@ -1,11 +1,11 @@
 Given /^the number (.*)$/ do |number|
-  pending
+  @number = number
 end
 
 When "I convert it to words" do
-  pending
+  @words = ConvertsNumberToWords.for(@number).as_words
 end
 
-Then /^the words should be "(.*)"$/ do |word|
-  pending
+Then /^the words should be "(.*)"$/ do |words|
+  expect(@words).to eq words
 end
