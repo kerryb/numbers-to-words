@@ -7,6 +7,6 @@ class ConvertsNumberToWords
   end
 
   def as_words
-    "one"
+    @number == 1 ?  "one" : "two"
   end
 end
