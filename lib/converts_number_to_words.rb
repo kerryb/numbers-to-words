@@ -1,4 +1,7 @@
 class ConvertsNumberToWords
+  UP_TO_TWENTY = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+   "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+
   def initialize number
     @number = number
   end
@@ -7,6 +10,6 @@ class ConvertsNumberToWords
   end
 
   def as_words
-    @number == 1 ?  "one" : "two"
+    UP_TO_TWENTY[@number]
   end
 end
