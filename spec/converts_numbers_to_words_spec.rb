@@ -4,7 +4,10 @@ describe ConvertsNumberToWords do
   subject { ConvertsNumberToWords }
 
   RSpec::Matchers.define :convert do |number, args|
-    match {|convertor| convertor.for(number).as_words == args.fetch(:to) }
+    match do |convertor|
+      @result = convertor.for(number).as_words
+      @result == args.fetch(:to)
+    end
 
     failure_message_for_should do |actual|
       "expected #{number} to be converted to '#{args.fetch :to}'"
